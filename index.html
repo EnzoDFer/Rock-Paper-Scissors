@@ -77,8 +77,12 @@
 
                 console.log(`\nFinal Score:`);
                 console.log(`Player: ${playerScore}   Computer: ${computerScore}`)
-                console.log(`Winner: ${(playerScore>computerScore)?'Player':'Computer'}`)
-
+                
+                if (playerScore === computerScore) { 
+                    console.log('No Winner! It\'s a tie!');
+                } else {
+                    console.log(`Winner: ${(playerScore>computerScore)?'Player':'Computer'}`)
+                }
             }
         </script>
 
