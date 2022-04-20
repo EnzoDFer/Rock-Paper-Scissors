@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock-Paper-Scissors</title>
+
+        <script>
+            const choices = ['rock','paper','scissors'];
+
+            
+            function computerPlay() { //randomly chooses from choices array
+                return choices[Math.floor(Math.random()*choices.length)]
+            }
+        
+
+            function playRound(playerSelection='rock') {
+                return winCheck(playerSelection,computerPlay())
+            }
+            
+            function winCheck(playerSelection, computerSelection) {
+                switch (playerSelection.toLowerCase()) {
+                    case 'rock':
+                        if (computerSelection === 'rock') { 
+                            return 'Tie! Try again'
+                        } else if (computerSelection === 'paper') {
+                            return 'You Lose! Paper beats Rock'
+                        } else if (computerSelection === 'scissors') {
+                            return 'You Win! Rock beats Scissors'
+                        } break;
+                    case 'paper':
+                        if (computerSelection === 'rock') { 
+                                return 'You Win! Paper beats Rock'
+                        } else if (computerSelection === 'paper') {
+                                return 'Tie! Try again'
+                        } else if (computerSelection === 'scissors') {
+                                return 'You Lose! Scissors beats Paper'
+                        } break;
+                    case 'scissors':
+                        if (computerSelection === 'rock') { 
+                                return 'You Lose! Rock beats Scissors'
+                        } else if (computerSelection === 'paper') {
+                            return 'You Win! Scissors beat Paper'
+                        } else if (computerSelection === 'scissors') {
+                            return 'Tie! Try again'
+                        } break;    
+                }
+            }   
+
+        </script>
+
+    </head>
+
+    <body>
+        
+    </body>
+</html>
