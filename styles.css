@@ -14,7 +14,7 @@ body {
 }
 
 #battleScreen {
-  background: pink;
+  background: rgb(241, 222, 226);
   height: 100vh;
   max-height:100vh;
 }
@@ -29,17 +29,51 @@ body {
 
 #playerHealth {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  align-self: flex-start;
+  height: 100px;
+  width: 500px;
   display: block;
   z-index: 99;
+  margin-left: 10px;
 }
 
 #monster {
-
+  flex: 3 1 auto;
 }
 
 #actionBar {
   flex-direction: row;
-  gap: 10px;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px;
 }
+
+.hand {
+  padding: 20px;
+  width: 10%;
+  height: 100%;
+  background: thistle;
+  transition: background 1s ease-out;
+}
+
+.hand:hover {
+  background: rgb(238, 139, 139);
+}
+
+.pulse {
+  animation: pulse-effect 1s infinite ease-out;
+  box-shadow: 0px 0px 0px 5px thistle;
+}
+
+@keyframes pulse-effect {
+  0%{
+    box-shadow: 0px 0px 0px 5px rgba(216, 191, 216, 0.8);
+  }
+  
+  100%{
+    box-shadow: 0px 0px 0px 30px rgba(216, 191, 216, 0);
+  }
+}
+
