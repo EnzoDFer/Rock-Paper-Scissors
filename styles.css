@@ -1,0 +1,45 @@
+* {
+  box-sizing:border-box;
+  margin: 0px;
+}
+
+html {
+  max-width: 100vw;
+  max-height: 100vh;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+}
+
+#battleScreen {
+  background: pink;
+  height: 100vh;
+  max-height:100vh;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed teal;
+}
+
+#playerHealth {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: block;
+  z-index: 99;
+}
+
+#monster {
+
+}
+
+#actionBar {
+  flex-direction: row;
+  gap: 10px;
+}

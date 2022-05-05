@@ -74,5 +74,5 @@ function game(counter=5) {
   } else {
       console.log(`Winner: ${(playerScore>computerScore)?'Player':'Computer'}`)
   }
-  
+
 }
