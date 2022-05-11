@@ -9,18 +9,40 @@
     <link rel="stylesheet" href="styles.css">
   </head>  
   <body>
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="dilate">
+          <feMorphology operator="dilate" radius="2"></feMorphology>
+        </filter>
+      </defs>
+    </svg>
+
     <div class="container" id="battleScreen">
+
       <div class="container" id="playerHealth">
-        <div class="health">Health</div>
-        <div class="health">*Hearts go here*</div>
+        <div class="health healthTitle">Health</div>
+        <div class="health healthBar">
+          <svg xmlns="http://www.w3.org/2000/svg">
+              <g height="40px" width="40px" transform="translate(10,10)" id="fullHeart">
+                <g class="dilate" height="40px" width="40px"><rect class="heart border"></rect></g>
+                <rect class="heart"></rect>
+              </g>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" >
+            <use href="#fullHeart"/>
+          </svg>
+        </div>
       </div>
+
       <div class="container" id="monsterHealth">
         <div class="health">Monster Health</div>
         <div class="health">*monster skull hearts go here*</div>
       </div>
+      
       <div class="container" id="monster">
         <img src="img/ghost.svg" alt="rawr monster">
       </div>
+
       <div class="container" id="actionBar">
         <button class="hand pulse" id="rockButton">rock</button>
         <button class="hand pulse" id="paperButton">paper</button>
