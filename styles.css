@@ -31,29 +31,40 @@ body {
 
 /*    Player Health Styles   */
 #playerHealth {
-  position: absolute;
+  position: fixed;
   align-self: flex-start;
-  height: 100px;
-  width: 500px;
-  margin-left: 10px;
+  height: 200px;
+  max-width: 500px;
+  margin: 10px 0 0 10px;
 }
 
 .healthBar {
   display: flex;
+  flex: 1;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  border: 1px solid black;
+  align-content: flex-start
 } 
+
+.healthBar svg {
+  flex: 1 1 auto;
+  max-width: 48px;
+  max-height: 54px;
+  border: 1px solid orange;
+}
 
 .dilate {
   filter: url(#dilate);
 }
 
 .heart {
-  width: 100%;
-  height: 100%;
+  width: 40px;
+  height:40px;
   fill: red;
   clip-path: path('M 17 39 C -11 15 1 -9 17 3 C 33 -9 45 15 17 39 Z');
   animation: heartBeat 1s infinite alternate;
+  transform-origin: center;
 }
 
 .border {
@@ -63,6 +74,9 @@ body {
 @keyframes heartBeat {
   to {transform: scale(1.2);}
 }
+
+/*    End Player Health Styles   */
+
 
 #monster {
   flex: 3 1 auto;
