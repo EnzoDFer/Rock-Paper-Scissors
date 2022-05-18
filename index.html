@@ -44,18 +44,21 @@
         <div class="health healthTitle">Monster Health</div>
         <div class="health healthBar">
           <svg xmlns="http://www.w3.org/2000/svg">
-            <g id='cartoonSkull' height="40px" width="40px">
-              <g transform="translate(0,0)" height="40px" width="40px">
+            <g id='cartoonSkull'>
+              <g transform="translate(7,43)">
                 <g class="dilate">
                   <rect class="skull border"></rect>
                 </g>
                 <rect class="skull"></rect>
               </g>
-              <circle id='skullEyeLeft' fill='black' position='absolute' r='5' cx='13';
-             cy='18'/>
-              <circle id='skullEyeRight' fill='black' position='absolute' r='5' cx='27';
-             cy='18'/>
+              <circle id='skullEyeLeft' fill='black' position='absolute' r='5' cx='19';
+             cy='61'/>
+              <circle id='skullEyeRight' fill='black' position='absolute' r='5' cx='36';
+             cy='61'/>
             </g>
+          </svg>
+          <svg>
+            <use href="#cartoonSkull" />
           </svg>
         </div>
         
