@@ -1,6 +1,14 @@
 "use strict";
 
 const choices = ['rock','paper','scissors'];
+const gameButton = document.querySelector('#gameButton');
+const playerLifeCount = document.querySelector('#playerLives');
+const monsterLifeCount = document.querySelector('#monsterLives');
+
+
+
+
+gameButton.addEventListener('click',() => alert(playerLifeCount.value));
 
 
 function computerPlay() { //randomly chooses from choices array

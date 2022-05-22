@@ -73,6 +73,7 @@ body {
 }
 
 /*    End Player Health Styles   */
+
 /*    Begin Monster Health Styles */
 
 .skull{
@@ -150,13 +151,43 @@ body {
   clip-path: path('M65 9C99 9 109 41 99 72 108 88 180 54 110 104 148 169 137 193 134 201 115 217 99 180 65 198 46 214 37 182 6 199 5 203 6 152 36 98 42 94-25 7 51 67 32 33 48 8 65 9');
 }
 
+/*   Finish monseter styles    */
+/*   ScoreBoard   */
 
+#scoreBoard {
+  border: 1px solid blue;
+  position: fixed;
+  top: 30%;
+  height: 30%;
+  width: 20%;
+  right: 0;
+  padding: 5px;
+}
+
+.lifeDisplay{
+  display: inline;
+  border: 1px black solid;
+  height: 4px;
+  width: 4px;
+  margin-left: 5px;
+}
+
+.textBox {
+  padding: 10px;
+  border: 1px black dashed;
+  flex: 1;
+  width: 100%;
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+/*   END SCOREBOARD */
 
 .border {
   fill: black;
 }
-
-
 
 #actionBar {
   flex-direction: row;
@@ -170,7 +201,7 @@ body {
 .hand {
   padding: 20px;
   width: 10%;
-  min-width: fit-content;
+  min-width:fit-content;
   height: 100%;
   background: thistle;
   transition: background 1s ease-out;

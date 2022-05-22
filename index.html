@@ -40,6 +40,20 @@
         </div>
       </div>
 
+      <div class="container" id="scoreBoard">
+        <button class="gameToggle" id="gameButton">GAME START</button>
+        <form oninput="playerOut.value=playerLives.value">
+            <label for="playerLives">Player Lives:  <output name='playerOut' for="playerLives"></output>
+            <input type="range" id="playerLives" min="1" max="7" step="1">
+        </form>
+        <form oninput="monsterOut.value=monsterLives.value">
+            <label for="monsterLives">Monster Lives:  <output name='monsterOut' for="playerLives"></output></label>
+            <input type="range" id="monsterLives" min="1" max="7" step="1">
+        </form>
+        <div class="textBox">Select # of lives and click 'Game Start'</div>
+      </div>
+
+
       <div class="container" id="monsterHealth">
         <div class="health healthTitle">Monster Health</div>
         <div class="health healthBar">
@@ -51,9 +65,9 @@
                 </g>
                 <rect class="skull"></rect>
               </g>
-              <circle id='skullEyeLeft' fill='black' position='absolute' r='5' cx='19'
+              <circle fill='black' position='absolute' r='5' cx='19'
              cy='61'/>
-              <circle id='skullEyeRight' fill='black' position='absolute' r='5' cx='36'
+              <circle fill='black' position='absolute' r='5' cx='36'
              cy='61'/>
             </g>
           </svg>
