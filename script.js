@@ -6,9 +6,7 @@ const playerLifeCount = document.querySelector('#playerLives');
 const monsterLifeCount = document.querySelector('#monsterLives');
 
 
-
-
-gameButton.addEventListener('click',() => alert(playerLifeCount.value));
+gameButton.addEventListener('click', () => game());
 
 
 function computerPlay() { //randomly chooses from choices array
@@ -59,24 +57,26 @@ function winCheck(playerSelection, computerSelection) {
 }   
 
 
-function game(counter=5) {
+function game() {
   let playerScore = 0;
   let computerScore = 0;
+  let playerLivesLeft = playerLifeCount.value;
+  let monsterLivesLeft = monsterLifeCount.value;
 
-  console.log(`You are now playing ${counter} rounds:`)
+  while (playerLivesLeft > 0 && monsterLivesLeft > 0) {
 
-  for (let i = 0; i < counter; i++) {
-    console.log('Current Score:')
-    console.log(`Player: ${playerScore}   Computer: ${computerScore}`)
-      
     let playerSelection = prompt('Please pick: rock/paper/scissors');
     let result = playRound(playerSelection);
-    if (result>0) {playerScore+=result}
-    else {computerScore+=(result*-1)}
+    if (result>0) {
+      playerScore+=result;
+      monsterLivesLeft--;
+    }
+    else if (result<0) {
+      computerScore+=(result*-1)
+      playerLivesLeft--;
+    }
   }
 
-  console.log(`\nFinal Score:`);
-  console.log(`Player: ${playerScore}   Computer: ${computerScore}`)  
   if (playerScore === computerScore) { 
       console.log('No Winner! It\'s a tie!');
   } else {

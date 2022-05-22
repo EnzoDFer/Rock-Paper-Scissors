@@ -172,13 +172,6 @@ body {
   margin-left: 5px;
 }
 
-.textBox {
-  padding: 10px;
-  border: 1px black dashed;
-  flex: 1;
-  width: 100%;
-  text-align: center;
-}
 
 form {
   text-align: center;
