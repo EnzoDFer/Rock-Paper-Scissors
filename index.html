@@ -18,11 +18,10 @@
     </svg>
 
     <div class="container" id="battleScreen">
-
       <div class="container" id="playerHealth">
         <div class="health healthTitle">Health</div>
-        <div class="health healthBar">
-          <svg xmlns="http://www.w3.org/2000/svg">
+        <div class="health healthBar" id="playerHealthBar">
+          <svg xmlns="http://www.w3.org/2000/svg" id="heartSvg">
               <g height="40px" width="40px" transform="translate(8,8)" id="fullHeart">
                 <g class="dilate" height="40px" width="40px"><rect class="heart border"></rect></g>
                 <rect class="heart"></rect>
@@ -32,6 +31,7 @@
       </div>
 
       <div class="container" id="scoreBoard">
+        <button id="testButton">test</button>
         <button class="gameToggle" id="gameButton">GAME START</button>
         <form oninput="playerOut.value=playerLives.value">
             <label for="playerLives">Player Lives:  <output name='playerOut' for="playerLives"></output>
@@ -65,7 +65,7 @@
              cy='61'/>
             </g>
           </svg>
-          <svg>
+          <svg xmlns="http://www.w3.org/2000/svg">
             <use href="#cartoonSkull" />
           </svg>
         </div>
