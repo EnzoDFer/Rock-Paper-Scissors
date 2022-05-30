@@ -50,9 +50,9 @@
 
       <div class="container" id="monsterHealth">
         <div class="health healthTitle">Monster Health</div>
-        <div class="health healthBar">
-          <svg xmlns="http://www.w3.org/2000/svg">
-            <g id='cartoonSkull'>
+        <div class="health healthBar" id="monsterHealthBar">
+          <svg xmlns="http://www.w3.org/2000/svg" id="cartoonSkull">
+            <g id='wrapperSkull'>
               <g transform="translate(7,43)">
                 <g class="dilate">
                   <rect class="skull border"></rect>
@@ -65,11 +65,7 @@
              cy='61'/>
             </g>
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg">
-            <use href="#cartoonSkull" />
-          </svg>
         </div>
-        
       </div>
       
       <div class="container" id="monsterContainer">

@@ -7,6 +7,7 @@ const monsterLifeCount = document.querySelector('#monsterLives');
 
 const testButton = document.querySelector('#testButton');
 const plDiv = document.querySelector('#playerHealthBar');
+const monDiv = document.querySelector('#monsterHealthBar');
 
 
 const newSVG = (svgElement,aDiv)=> {
@@ -14,11 +15,19 @@ const newSVG = (svgElement,aDiv)=> {
   aDiv.appendChild(newSVG);
 };
 
-gameButton.addEventListener('click', () => game());
+gameButton.addEventListener('click', () => gameStart(playerLifeCount.value,monsterLifeCount.value));
 testButton.addEventListener('click', () => {
-  plDiv.setAttribute('style','border: black 1px solid;');
-  newSVG('#heartSvg',plDiv);
+  gameStart(playerLifeCount.value,monsterLifeCount.value);
 })
+
+function gameStart(playerLives, monsterLives) {
+  for (let i=1;i<playerLives;i++) {
+    newSVG('#heartSvg',plDiv);
+  }
+  for (let i=1;i<monsterLives;i++) {
+    newSVG('#cartoonSkull',monDiv);
+  }
+};
 
 
 function computerPlay() { //randomly chooses from choices array
