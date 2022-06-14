@@ -5,10 +5,9 @@ const gameButton = document.querySelector('#gameButton');
 const playerLifeCount = document.querySelector('#playerLives');
 const monsterLifeCount = document.querySelector('#monsterLives');
 
-const testButton = document.querySelector('#testButton');
 const plDiv = document.querySelector('#playerHealthBar');
 const monDiv = document.querySelector('#monsterHealthBar');
-
+const scoreboard = document.querySelector('#board');
 const rock = document.querySelector('#rockButton');
 const paper = document.querySelector('#paperButton');
 const scissors = document.querySelector('#scissorsButton');
@@ -36,11 +35,6 @@ function lifeSet(playerLives,monsterLives) {
 
 gameButton.addEventListener('click', () => {
   gameStart(playerLifeCount.value,monsterLifeCount.value);
-});
-
-testButton.addEventListener('click', () => {
-  console.log('press');
-  lifeSet(playerLifeCount.value,monsterLifeCount.value);
 });
 
 function gameStart(playerLives, monsterLives) {
@@ -98,6 +92,7 @@ function winCheck(playerSelection, computerSelection) {
 
 
 async function game(playerLives,monsterLives) {
+  scoreboard.textContent='Pick a hand!';
   while (playerLives > 0 && monsterLives > 0) {
     console.log(`player lives:${playerLives}`)
     console.log(`mon lives:${monsterLives}`)
@@ -112,5 +107,6 @@ async function game(playerLives,monsterLives) {
     if (result<0) playerLives--;
     lifeSet(playerLives,monsterLives);
   }
-  console.log('done');
+  let winner = (playerLives===0) ? 'player': 'monster';
+  scoreboard.textContent = `The ${winner} wins! Set Lives and Play again!`;
 }

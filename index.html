@@ -31,7 +31,6 @@
       </div>
 
       <div class="container" id="scoreBoard">
-        <button id="testButton">test</button>
         <button class="gameToggle" id="gameButton">GAME START</button>
         <form oninput="playerOut.value=playerLives.value">
             <label for="playerLives">Player Lives:  <output name='playerOut' for="playerLives"></output>
@@ -41,9 +40,8 @@
             <label for="monsterLives">Monster Lives:  <output name='monsterOut' for="playerLives"></output></label>
             <input type="range" id="monsterLives" min="1" max="7" step="1">
         </form>
-        <div class="container">
+        <div class="container" id="board">
           Select # of lives and click 'Game Start'
-          
         </div>
       </div>
 

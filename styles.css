@@ -163,13 +163,18 @@ body {
 /*   ScoreBoard   */
 
 #scoreBoard {
-  border: 1px solid blue;
+  border: 1px solid black;
+  background: radial-gradient(circle at 50% 50%, #ffffff, #aaaaaa);
   position: fixed;
   top: 30%;
-  height: 30%;
-  width: 20%;
+  height: 35%;
+  width: 25%;
   right: 0;
   padding: 5px;
+}
+
+#board {
+ padding-top: 35px;
 }
 
 .lifeDisplay{
