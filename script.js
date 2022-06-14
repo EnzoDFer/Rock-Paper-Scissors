@@ -9,25 +9,44 @@ const testButton = document.querySelector('#testButton');
 const plDiv = document.querySelector('#playerHealthBar');
 const monDiv = document.querySelector('#monsterHealthBar');
 
+const rock = document.querySelector('#rockButton');
+const paper = document.querySelector('#paperButton');
+const scissors = document.querySelector('#scissorsButton');
 
-const newSVG = (svgElement,aDiv)=> {
-  const newSVG = document.querySelector(svgElement).cloneNode(true);
-  aDiv.appendChild(newSVG);
-};
+const heartSVG = document.querySelector('#heartSvg');
+const cartoonSkullSVG = document.querySelector('#cartoonSkull');
 
-gameButton.addEventListener('click', () => gameStart(playerLifeCount.value,monsterLifeCount.value));
-testButton.addEventListener('click', () => {
+
+function lifeSet(playerLives,monsterLives) {
+  const nodes = [plDiv,monDiv];
+  nodes.forEach((node)=>{
+    while (node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
+  });
+  for (let i=1;i<=playerLives;i++) {
+    const svg = heartSVG.cloneNode(true);
+    plDiv.appendChild(svg);
+  }
+  for (let i=1;i<=monsterLives;i++) {
+    const svg = cartoonSkullSVG.cloneNode(true);
+    monDiv.appendChild(svg);
+  }
+}
+
+gameButton.addEventListener('click', () => {
   gameStart(playerLifeCount.value,monsterLifeCount.value);
-})
+});
+
+testButton.addEventListener('click', () => {
+  console.log('press');
+  lifeSet(playerLifeCount.value,monsterLifeCount.value);
+});
 
 function gameStart(playerLives, monsterLives) {
-  for (let i=1;i<playerLives;i++) {
-    newSVG('#heartSvg',plDiv);
-  }
-  for (let i=1;i<monsterLives;i++) {
-    newSVG('#cartoonSkull',monDiv);
-  }
-};
+  lifeSet(playerLives,monsterLives);
+  game(playerLives, monsterLives);
+}
 
 
 function computerPlay() { //randomly chooses from choices array
@@ -78,30 +97,20 @@ function winCheck(playerSelection, computerSelection) {
 }   
 
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  let playerLivesLeft = playerLifeCount.value;
-  let monsterLivesLeft = monsterLifeCount.value;
-
-  while (playerLivesLeft > 0 && monsterLivesLeft > 0) {
-
-    let playerSelection = prompt('Please pick: rock/paper/scissors');
-    let result = playRound(playerSelection);
-    if (result>0) {
-      playerScore+=result;
-      monsterLivesLeft--;
-    }
-    else if (result<0) {
-      computerScore+=(result*-1)
-      playerLivesLeft--;
-    }
+async function game(playerLives,monsterLives) {
+  while (playerLives > 0 && monsterLives > 0) {
+    console.log(`player lives:${playerLives}`)
+    console.log(`mon lives:${monsterLives}`)
+    const playerSelection = await new Promise((resolve,reject) => {
+      rock.addEventListener('click',()=> resolve('rock'));
+      paper.addEventListener('click', ()=> resolve('paper'));
+      scissors.addEventListener('click', ()=> resolve('scissors'));
+    });
+    const result = playRound(playerSelection);
+    console.log(playerSelection);
+    if (result>0) monsterLives--;
+    if (result<0) playerLives--;
+    lifeSet(playerLives,monsterLives);
   }
-
-  if (playerScore === computerScore) { 
-      console.log('No Winner! It\'s a tie!');
-  } else {
-      console.log(`Winner: ${(playerScore>computerScore)?'Player':'Computer'}`)
-  }
-
+  console.log('done');
 }
