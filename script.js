@@ -107,6 +107,6 @@ async function game(playerLives,monsterLives) {
     if (result<0) playerLives--;
     lifeSet(playerLives,monsterLives);
   }
-  let winner = (playerLives===0) ? 'player': 'monster';
+  let winner = (playerLives===0) ? 'monster': 'player';
   scoreboard.textContent = `The ${winner} wins! Set Lives and Play again!`;
 }
