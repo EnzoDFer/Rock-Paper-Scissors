@@ -103,9 +103,16 @@ async function game(playerLives,monsterLives) {
     });
     const result = playRound(playerSelection);
     console.log(playerSelection);
-    if (result>0) monsterLives--;
-    if (result<0) playerLives--;
-    lifeSet(playerLives,monsterLives);
+    if (result>0) {
+      monsterLives--;
+      scoreboard.textContent = `Your ${playerSelection} won! Pick your next hand.`;
+    }
+    else if (result<0) {
+      playerLives--;
+      scoreboard.textContent = `Your ${playerSelection} lost! Pick your next hand.`;
+    }
+    else scoreboard.textContent = `Your ${playerSelection} tied! Pick your next hand.`;
+    lifeSet(playerLives,monsterLives); 
   }
   let winner = (playerLives===0) ? 'monster': 'player';
   scoreboard.textContent = `The ${winner} wins! Set Lives and Play again!`;
